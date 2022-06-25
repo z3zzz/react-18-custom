@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const { protocol, hostname } = window.location;
-const backendPort = process.env.REACT_APP_BACKEND_PORT;
+const backendPort = process.env.REACT_APP_BACKEND_PORT || 5000;
 const baseUrl = `${protocol}://${hostname}:${backendPort}`;
 
 async function get(endpoint: string) {
@@ -13,7 +13,7 @@ async function post(endpoint: string, data: any) {
 
   return axios.post(baseUrl + endpoint, bodyData, {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   });
 }
@@ -23,7 +23,7 @@ async function patch(endpoint: string, data: any) {
 
   return axios.put(baseUrl + endpoint, bodyData, {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   });
 }
